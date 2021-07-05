@@ -6,5 +6,4 @@ const viewController = {
     reHome(req,res,next){ res.redirect(PATH)},
     reShow(req,res,next){ res.redirect(PATH+`/${req.params.id}`)}
     }
-}
 module.exports = viewController;
