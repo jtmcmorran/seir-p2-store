@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const methodOverride = require('method-override');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const db = require('./models/db');
 //set up database
 db.once('connected',()=>{
@@ -19,7 +19,7 @@ app.use((req,res,next)=>{
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
-app.use('/store',require('./controllers/routeController'));
+app.use('/products',require('./controllers/routeController'));
 app.listen(PORT, ()=>{
   console.log('listening on port ', PORT);
 })
