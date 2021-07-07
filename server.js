@@ -19,7 +19,11 @@ app.use((req,res,next)=>{
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
-app.use('/products/',require('./controllers/routeController'));
+app.get('/', (req,res)=>{
+  res.redirect('/products')
+})
+app.use('/products',require('./controllers/routeController'));
+
 app.listen(PORT, ()=>{
   console.log('listening on port ', PORT);
 })
