@@ -12,7 +12,7 @@ class Index extends React.Component{
             return(
               <li key = {product._id}>
               <a href={`/products/${product._id}`}>{product.name}</a>
-              </li>
+            </li>
             )
           })
         }
