@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const viewController = require('./viewController');
-const dataController = require('./datacontroller');
+const dataController = require('./dataController');
 router.get('/', dataController.index,viewController.index)
 router.delete('/:id', dataController.destroy, viewController.reHome)
 router.put('/:id', dataController.update, viewController.reShow)
