@@ -9,20 +9,20 @@ class Show extends React.Component{
     inStock=true:
     inStock=false
     return(
-      <DefaultLayout>
-        <h3>{product.name}</h3>
+      <DefaultLayout styles={[{href:"/css/show.css"}]}>
+        <h1>{product.name}</h1>
         <img src={product.img}/>
         <p>{product.description}</p>
         <div>quantity remaining:{product.qty}</div>
-        <div>Price:{product.price}</div>
+        <div>Price:{`$${product.price}`}</div>
         {
           inStock?
           (<form method="POST" action={`/products/${this.props.product.id}/buy?_method=PUT`}><input type="submit" value="buy"/></form>):
           (<div>out of stock</div>)
         }
-
-
-        <a href={`/products/${product._id}/edit`}> edit</a>
+        <form method="POST" action={`/products/${product._id}?_method=DELETE`}><input type="submit" value="DELETE"/></form>
+        <a href={`/products/${product._id}/edit`}> edit this product</a><br/>
+        <a href={"/products/"}>return to main page</a>
       </DefaultLayout>
     )
   }
